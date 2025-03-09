@@ -1,13 +1,9 @@
 # 🌏 GeoData2KML
 
-![alt text](.\src\license.png)
-![alt text](.\src\version1.png)
+![License](https://github.com/Nody-Peng/GeoData2KML/blob/main/src/license.png?raw=true)
+![Version](https://github.com/Nody-Peng/GeoData2KML/blob/main/src/version1.png?raw=true)
 
-> 「地圖是一種語言，而 GeoMapper 則是它的詩人。」
-
-### 專案概述
-
-GeoData2KML 是一個開源的網頁應用程式，提供簡單直觀的介面，讓使用者能夠將 CSV、JSON 或 XML 格式的資料轉換為 KML 檔案。這個工具特別適合需要在地理資訊系統中視覺化點位資料的專業人士和研究人員。
+> GeoData2KML 是一個開源的網頁應用程式，提供簡單直觀的介面，讓使用者能夠將 CSV、JSON 或 XML 格式的資料轉換為 KML 檔案。這個工具特別適合需要在地理資訊系統中視覺化點位資料的專業人士和研究人員。
 
 ### 主要功能
 
