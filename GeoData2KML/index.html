@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>資料轉KML工具</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app-container">
+      <div class="app-header">
+        <h1 class="app-title">資料轉KML工具</h1>
+        <p class="app-subtitle">
+          上傳CSV、JSON或XML格式的資料，選擇座標欄位，一鍵轉換為KML格式
+        </p>
+      </div>
+
+      <div class="step-indicator">
+        <div class="step active" id="step1">
+          <div class="step-circle">1</div>
+          <div class="step-text">上傳檔案</div>
+        </div>
+        <div class="step" id="step2">
+          <div class="step-circle">2</div>
+          <div class="step-text">選擇欄位</div>
+        </div>
+        <div class="step" id="step3">
+          <div class="step-circle">3</div>
+          <div class="step-text">產生KML</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <i class="fas fa-file-upload"></i> 上傳資料檔案
+        </div>
+        <div class="card-body">
+          <div class="file-upload">
+            <i class="fas fa-cloud-upload-alt file-upload-icon"></i>
+            <div class="file-upload-text">拖曳檔案至此或點擊選擇檔案</div>
+            <div class="file-upload-hint">支援 CSV、JSON、XML 格式</div>
+            <input type="file" id="fileInput" accept=".csv,.json,.xml" />
+          </div>
+
+          <div id="fileInfo" class="file-info hidden fade-in">
+            <div class="file-info-icon">
+              <i class="fas fa-file-alt"></i>
+            </div>
+            <div class="file-info-content">
+              <h3>檔案資訊</h3>
+              <p id="fileName">檔案名稱: -</p>
+              <p id="fileType">檔案類型: -</p>
+              <p id="fileSize">檔案大小: -</p>
+              <p id="recordCount">資料筆數: -</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="columnSelectors" class="card hidden fade-in">
+        <div class="card-header"><i class="fas fa-columns"></i> 選擇欄位</div>
+        <div class="card-body">
+          <div class="alert alert-info">
+            <i class="fas fa-info-circle"></i>
+            <div>
+              請選擇對應的欄位，以便正確產生KML檔案。系統已嘗試自動選擇適合的欄位。
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="nameField">點位名稱欄位</label>
+            <select id="nameField" class="form-select"></select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="xCoordField"
+              >X 座標欄位 (緯度)</label
+            >
+            <select id="xCoordField" class="form-select"></select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="yCoordField"
+              >Y 座標欄位 (經度)</label
+            >
+            <select id="yCoordField" class="form-select"></select>
+          </div>
+        </div>
+      </div>
+
+      <div id="previewContainer" class="card hidden fade-in">
+        <div class="card-header"><i class="fas fa-table"></i> 資料預覽</div>
+        <div class="card-body">
+          <div id="preview"></div>
+        </div>
+      </div>
+
+      <button id="generateKML" class="btn btn-lg hidden fade-in">
+        <i class="fas fa-map-marked-alt"></i> 產生 KML 檔案
+      </button>
+
+      <div
+        id="downloadInfo"
+        class="alert alert-success hidden fade-in"
+        style="display: none"
+      >
+        <i class="fas fa-check-circle"></i>
+        <div>KML檔案已成功產生！檔案將自動下載。</div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
